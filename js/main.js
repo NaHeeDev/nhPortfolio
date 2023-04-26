@@ -258,13 +258,13 @@ function goToScroll(name) {
         
         if(enterNewScene) return;
         // pc에서만 애니메이션 작동
-        //if (window.innerWidth > 1024 ) {
+        if (window.innerWidth > 1024 ) {
             playAnimation();
-        //}
+        }
     }
 
     function setLayout() {
-        //if (window.innerWidth > 1024 ) {
+        if (window.innerWidth > 1024 ) {
             for (let i = 0; i < sectionInfo.length; i++){
                 if (sectionInfo[i].type == "sticky") {
                     sectionInfo[i].scrollHeight = sectionInfo[i].heightNum * window.innerHeight;
@@ -285,14 +285,16 @@ function goToScroll(name) {
                 }
             }
             document.body.setAttribute('id',`curSection${curSection+1}`);
-        /*}else {
+        }else {
             document.querySelector(".scroll-section").style.height = `auto`;
-        }*/
+        }
     }
 
     
     window.addEventListener('load',() =>{
+
         setLayout();
+
         // 중간에서 새로고침 했을 경우 자동 스크롤로 제대로 그려주기
         let tempYOffset = yOffset;
         let tempScrollCount = 0;
@@ -311,22 +313,28 @@ function goToScroll(name) {
         window.addEventListener('scroll', () =>{
             yOffset = window.pageYOffset;
             
-            scrollLoop();
-            // 모바일에서 header fixed
             if (window.innerWidth <= 1024 ) {
+                // 모바일에서 header fixed
                 if(yOffset > 0 ){
                     document.querySelector("#header").classList.add("top-fixed");
                 }else{
                     document.querySelector("#header").classList.remove("top-fixed");
                 }
+            }else{
+                //pc에서만 animation
+                scrollLoop();
             }
         })
 
         window.addEventListener('resize',()=>{
-            //window.location.reload();
+            alert("resize");
+            if (window.innerWidth > 1024 ) {
+                window.location.reload();
+            }
         });
 
         window.addEventListener('orientationchange', () => {
+            alert("orientationchange");
 			scrollTo(0, 0);
 			setTimeout(() => {
 				window.location.reload();
