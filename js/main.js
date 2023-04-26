@@ -159,8 +159,8 @@ function goToScroll(name) {
         const values = sectionInfo[curSection].values;
         const currentYOffset = yOffset - prevScrollHeight;
         const scrollHeight = sectionInfo[curSection].scrollHeight;
-        const scrollRatio = currentYOffset / scrollHeight;
-        console.log(curSection, scrollRatio);
+        const scrollRatio = currentYOffset / scrollHeight; 
+
         switch (curSection){
             case 0 : // seciton01
                 if(scrollRatio <= 0.22){
@@ -258,13 +258,13 @@ function goToScroll(name) {
         
         if(enterNewScene) return;
         // pc에서만 애니메이션 작동
-        if (window.innerWidth > 1024 ) {
+        //if (window.innerWidth > 1024 ) {
             playAnimation();
-        }
+        //}
     }
 
     function setLayout() {
-        if (window.innerWidth > 1024 ) {
+        //if (window.innerWidth > 1024 ) {
             for (let i = 0; i < sectionInfo.length; i++){
                 if (sectionInfo[i].type == "sticky") {
                     sectionInfo[i].scrollHeight = sectionInfo[i].heightNum * window.innerHeight;
@@ -285,9 +285,9 @@ function goToScroll(name) {
                 }
             }
             document.body.setAttribute('id',`curSection${curSection+1}`);
-        }else {
+        /*}else {
             document.querySelector(".scroll-section").style.height = `auto`;
-        }
+        }*/
     }
 
     
@@ -311,7 +311,7 @@ function goToScroll(name) {
         window.addEventListener('scroll', () =>{
             yOffset = window.pageYOffset;
             
-
+            scrollLoop();
             // 모바일에서 header fixed
             if (window.innerWidth <= 1024 ) {
                 if(yOffset > 0 ){
@@ -319,17 +319,15 @@ function goToScroll(name) {
                 }else{
                     document.querySelector("#header").classList.remove("top-fixed");
                 }
-            }else{
-                scrollLoop();
             }
         })
 
         window.addEventListener('resize',()=>{
-            //window.location.reload();
+            window.location.reload();
         });
 
         window.addEventListener('orientationchange', () => {
-			scrollTo(0, 0);
+			//scrollTo(0, 0);
 			setTimeout(() => {
 				window.location.reload();
 			}, 500);
