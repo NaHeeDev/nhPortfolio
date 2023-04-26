@@ -88,6 +88,9 @@ function goToScroll(name) {
                 sectionTitle_opacity_off: [1, 0, { start: 1, end: 0.7 }],
                 sectionTitle_translateY_on: [20, 0, { start: 0.7, end: 1 }],
 				sectionTitle_translateY_off: [0, -20, { start: 1, end: 1 }],
+
+                portfolioItem_opacity_on : [0, 1, { start: 0.7, end: 1 }],
+                portfolioItem_translateY_on: [20, 0, { start: 0.7, end: 1 }],
             },
         },
         {   //section03
@@ -102,10 +105,7 @@ function goToScroll(name) {
                 contactTxt : document.querySelector('#mainSection04 .btn-box'),
             },
             values:{
-                portfolioItem_opacity_on : [0, 1, { start: 0, end: 0.1 }],
-                portfolioItem_opacity_off: [1, 0, { start: 0, end: 0.1 }],
-                portfolioItem_translateY_on: [20, 0, { start: 0, end: 0.1 }],
-				portfolioItem_translateY_off: [0, -20, { start: 0, end: 0.1 }],
+               
                 // Section04 미리 불러오기
                 contactBg_translateX_on: [100, 0, { start: 0.8, end: 1 }],
                 contactBg_translateX_off: [0, -20, { start: 0.8, end: 1 }],
@@ -212,16 +212,13 @@ function goToScroll(name) {
                 if(scrollRatio >= 0.7){
                     objs.sectionTitle.style.opacity = calcValues(values.sectionTitle_opacity_on, currentYOffset);
                     objs.sectionTitle.style.transform = `translate3d(0, ${calcValues(values.sectionTitle_translateY_on, currentYOffset)}%, 0)`;
-                    objs.portfolioItem.style.opacity = 0;
+                    objs.portfolioItem.style.opacity = calcValues(values.portfolioItem_opacity_on, currentYOffset);
+                    objs.portfolioItem.style.transform = `translate3d(0, ${calcValues(values.portfolioItem_translateY_on, currentYOffset)}%, 0)`;
                 }else{
                     objs.sectionTitle.style.opacity = 0;
                 }
                 break;
             case 2 :
-                if(scrollRatio >= 0){
-                    objs.portfolioItem.style.opacity = calcValues(values.portfolioItem_opacity_on, currentYOffset);
-                    objs.portfolioItem.style.transform = `translate3d(0, ${calcValues(values.portfolioItem_translateY_on, currentYOffset)}%, 0)`;
-                }
                 //Section04 미리 불러오기
                 if(scrollRatio >= 0.7) {
                     objs.contactBg.style.transform = `translate3d( -${calcValues(values.contactBg_translateX_on, currentYOffset)}%,0, 0)`;
@@ -319,9 +316,8 @@ function goToScroll(name) {
         })
 
         window.addEventListener('resize',()=>{
-            //if (window.innerWidth > 900) {
-				window.location.reload();
-			//}
+			window.location.reload();
+			
         });
 
         window.addEventListener('orientationchange', () => {
