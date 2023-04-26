@@ -29,7 +29,7 @@
 .txt-ani:nth-child(2).active .txt-ani-inner {animation-delay: 0.5s;}
 .txt-ani:nth-child(3).active .txt-ani-inner {animation-delay: 0.8s;}
 
-.sticky-elem { display: none; position: fixed; left: 0; top:0; width: 100%;}
+.sticky-elem { display: none; position: fixed; left: 0; top:0; width: 100% z-index:999;}
 .main-message {opacity:0;}
 .scroll-section {position: relative; z-index: 9;/* border:1px solid red;box-sizing: border-box;*/}
 .main-section-tit {display:block; text-align:center; font-size:var(--sub-tit-size); text-align: center;}
