@@ -336,7 +336,7 @@ function goToScroll(name) {
 
     
     window.addEventListener('load',() =>{
-
+        alert(isMobile() );
         setLayout();
 
         // 중간에서 새로고침 했을 경우 자동 스크롤로 제대로 그려주기
@@ -373,6 +373,7 @@ function goToScroll(name) {
         window.addEventListener('resize',()=>{
             if (isMobile() == false){
                 window.location.reload();
+                alert('resize')
             }
         });
 
