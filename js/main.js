@@ -327,14 +327,12 @@ function goToScroll(name) {
         })
 
         window.addEventListener('resize',()=>{
-            alert("resize");
             if (window.innerWidth > 1024 ) {
                 window.location.reload();
             }
         });
 
         window.addEventListener('orientationchange', () => {
-            alert("orientationchange");
 			scrollTo(0, 0);
 			setTimeout(() => {
 				window.location.reload();
