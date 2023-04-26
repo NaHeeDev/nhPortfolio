@@ -323,11 +323,11 @@ function goToScroll(name) {
         })
 
         window.addEventListener('resize',()=>{
-            window.location.reload();
+            //window.location.reload();
         });
 
         window.addEventListener('orientationchange', () => {
-			//scrollTo(0, 0);
+			scrollTo(0, 0);
 			setTimeout(() => {
 				window.location.reload();
 			}, 500);
