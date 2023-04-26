@@ -258,13 +258,13 @@ function goToScroll(name) {
         
         if(enterNewScene) return;
         // pc에서만 애니메이션 작동
-        if (window.innerWidth > 800 ) {
+        if (window.innerWidth > 1024 ) {
             playAnimation();
         }
     }
 
     function setLayout() {
-        if (window.innerWidth > 800 ) {
+        if (window.innerWidth > 1024 ) {
             for (let i = 0; i < sectionInfo.length; i++){
                 if (sectionInfo[i].type == "sticky") {
                     sectionInfo[i].scrollHeight = sectionInfo[i].heightNum * window.innerHeight;
@@ -313,7 +313,7 @@ function goToScroll(name) {
             
 
             // 모바일에서 header fixed
-            if (window.innerWidth <= 800 ) {
+            if (window.innerWidth <= 1024 ) {
                 if(yOffset > 0 ){
                     document.querySelector("#header").classList.add("top-fixed");
                 }else{
@@ -325,7 +325,7 @@ function goToScroll(name) {
         })
 
         window.addEventListener('resize',()=>{
-            window.location.reload();
+            //window.location.reload();
         });
 
         window.addEventListener('orientationchange', () => {
