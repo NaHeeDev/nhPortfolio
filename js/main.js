@@ -302,35 +302,40 @@ function goToScroll(name) {
         
         if(enterNewScene) return;
         // pc에서만 애니메이션 작동
-        if (window.innerWidth > 1024 ) {
-            playAnimation();
+        if(isMobile() == false){
+            if (window.innerWidth > 1024 ) {
+                playAnimation();
+            }
         }
+        
     }
 
     function setLayout() {
-        if (window.innerWidth > 1024 ) {
-            for (let i = 0; i < sectionInfo.length; i++){
-                if (sectionInfo[i].type == "sticky") {
-                    sectionInfo[i].scrollHeight = sectionInfo[i].heightNum * window.innerHeight;
-                }else if(sectionInfo[i].type == "normal"){
-                    sectionInfo[i].scrollHeight = sectionInfo[i].objs.container.offsetHeight ;
+        if(isMobile() == false){
+            if (window.innerWidth > 1024 ) {
+                for (let i = 0; i < sectionInfo.length; i++){
+                    if (sectionInfo[i].type == "sticky") {
+                        sectionInfo[i].scrollHeight = sectionInfo[i].heightNum * window.innerHeight;
+                    }else if(sectionInfo[i].type == "normal"){
+                        sectionInfo[i].scrollHeight = sectionInfo[i].objs.container.offsetHeight ;
+                    }
+                    sectionInfo[i].objs.container.style.height = `${sectionInfo[i].scrollHeight}px`;
                 }
-                sectionInfo[i].objs.container.style.height = `${sectionInfo[i].scrollHeight}px`;
-            }
 
-            yOffset = window.pageYOffset;
+                yOffset = window.pageYOffset;
 
-            let totalScrollHeight = 0;
-            for(let i = 0; i < sectionInfo.length; i++){
-                totalScrollHeight += sectionInfo[i].scrollHeight;
-                if(totalScrollHeight >= yOffset){
-                    curSection = i;
-                    break;
+                let totalScrollHeight = 0;
+                for(let i = 0; i < sectionInfo.length; i++){
+                    totalScrollHeight += sectionInfo[i].scrollHeight;
+                    if(totalScrollHeight >= yOffset){
+                        curSection = i;
+                        break;
+                    }
                 }
+                document.body.setAttribute('id',`curSection${curSection+1}`);
+            }else {
+                document.querySelector(".scroll-section").style.height = 'auto';
             }
-            document.body.setAttribute('id',`curSection${curSection+1}`);
-        }else {
-            document.querySelector(".scroll-section").style.height = 'auto';
         }
     }
 
@@ -366,7 +371,9 @@ function goToScroll(name) {
                 }
             }else{
                 //pc에서만 animation
-                scrollLoop();
+                if(isMobile() == false){
+                    scrollLoop();
+                }
             }
         })
 
