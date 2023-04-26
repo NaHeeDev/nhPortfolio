@@ -19,9 +19,9 @@
                 <h1 class="logo"><a href="/">Nahee</a></h1>
                 <nav id="nav">
                     <ul class="menu-list">
-                        <li><a href="./portfolio/">PORTFOLIO</a></li>
-                        <li><a href="./about/">ABOUT</a></li>
-                        <li><a href="./contact/">CONTACT</a></li>
+                        <li><button onclick="goToScroll('mainSection02')">ABOUT</button></li>
+                        <li><button onclick="goToScroll('mainSection03')">PORTFOLIO</button></li>
+                        <li><button onclick="goToScroll('mainSection04')">CONTACT</button></li>
                     </ul>
                 </nav>
             </div>
@@ -31,11 +31,6 @@
         <div class="main-container">
             <!-- Section01 -->
             <div class="scroll-section" id="mainSection01">
-                <!-- <div class="main-visual">
-                    <div class="main-visual-tit-box">
-                        
-                    </div>
-                </div> -->
                 <div class="main-about-intro">
                     <div class="main-visual-tit-box">
                         <div class="inner">
@@ -104,50 +99,58 @@
             <!-- // -->
             <div class="scroll-section main-portfolio-con" id="mainSection03">
                 <div class="area">
-                    <strong class="main-section-tit">Portfolio</strong>
+                    <div class="tit-box">
+                        <strong class="main-section-tit">Portfolio</strong>
+                        <p class="txt">저의 작업물을 소개합니다. <br>모든 작업물은 <span>기여도 100%</span>로 퍼블리싱 파트를 전담하여 작업한 프로젝트들입니다.</p>
+                    </div>
+                    
                     <div class="con-box">
                         <ul class="main-portfolio-list">
                             <li>
-                                <a href="">
+                                <a href="https://www.shinhanart.com/" target="_blank">
                                     <dl>
                                         <dt>   
                                             <span class="img-wrap"><img src="./images/portfolio_list_img_shinhanart.jpg" alt="신한화구"></span>
-                                            <span class="more">View More</span>
+                                            <span class="more">View Site</span>
+                                            <span class="cover"></span>
                                         </dt>
-                                        <dd><strong class="tit">신한화구</strong></dd>
+                                        <dd><strong class="tit award">신한화구</strong></dd>
                                     </dl>
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="https://ggsealife.co.kr/" target="_blank">
                                     <dl>
                                         <dt>   
                                             <span class="img-wrap"><img src="./images/portfolio_list_img_gyeonggido.jpg" alt="경기도귀어귀촌종합지원센터"></span>
-                                            <span class="more">View More</span>
+                                            <span class="more">View Site</span>
+                                            <span class="cover"></span>
                                         </dt>
                                         <dd><strong class="tit">경기도귀어귀촌종합지원센터</strong></dd>
                                     </dl>
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="http://www.nc-and.com/" target="_blank">
                                     <dl>
                                         <dt>   
                                             <span class="img-wrap"><img src="./images/portfolio_list_img_ncn.jpg" alt="앤씨앤"></span>
-                                            <span class="more">View More</span>
+                                            <span class="more">View Site</span>
+                                            <span class="cover"></span>
                                         </dt>
                                         <dd><strong class="tit">앤씨앤</strong></dd>
                                     </dl>
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="https://www.fescaro.com/" target="_blank">
                                     <dl>
                                         <dt>   
-                                            <span class="img-wrap"><img src="./images/portfolio_list_img_shinsiway.jpg" alt="신시웨이"></span>
-                                            <span class="more">View More</span>
+                                            <span class="img-wrap"><img src="./images/portfolio_list_img_fescaro.jpg" alt="페스카로"></span>
+                                            <span class="more">View Site</span>
+                                            <span class="cover"></span>
                                         </dt>
-                                        <dd><strong class="tit">신시웨이</strong></dd>
+                                        <dd><strong class="tit">페스카로</strong></dd>
                                     </dl>
                                 </a>
                             </li>
@@ -156,23 +159,28 @@
                 </div>
             </div>
             <div class="scroll-section main-contact-con" id="mainSection04">
+                <div class="inner">
                 <div class="bg"></div>
                 <div class="con-box">
-                    <div class="tit-box">
-                        <p class="tit">Contact</p>
-                    </div>
-                    <div class="txt-box">
-                            <div class="btn-box">
-                                <a href="mailto:nh2767@gmail.com"><i class="xi-mail"></i><span>nh2767@gmail.com</span></a>
-                                <a href="tel:+82-10-8537-2767"><i class="call"></i><span>010-8537-2767</span></a>
-                            </div>
+                    <div class="inner-box">
+                        <div class="tit-box">
+                            <p class="tit">Contact</p>
+                            <p class="txt">준비된 개발자와 함께 하세요!</p>
+                        </div>
+                        <div class="btn-box">
+                            <a href="mailto:nh2767@gmail.com"><i class="xi-mail"></i><span>nh2767@gmail.com</span></a>
+                            <a href="tel:+82-10-8537-2767"><i class="xi-call"></i><span>010-8537-2767</span></a>
+                        </div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
         <!-- // -->
         <!-- ****************** Footer ****************** -->
-        <footer id="footer"></footer>
+        <footer id="footer">
+            <p class="copyright">Copyright &copy; 2023 Nahee All rights reserved.</p>
+        </footer>
         <!-- // -->
     </div>
     <script src="./js/common.js"></script>

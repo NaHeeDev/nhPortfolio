@@ -20,7 +20,6 @@
 	--header-height: 100px;
 	--full-height: 100vh;
 	--transition-custom: all 0.4s ease-in-out;
-	--transition-custom2: all 0.8s ease-in-out; /* data-scroll */
 	--font-family1: 'Noto Sans KR', "나눔고딕", NanumGothic, "Nanum Gothic","돋움", Dotum, Arial, sans-serif;
 }
 ::selection {
@@ -46,35 +45,9 @@ table, th, td{word-break:break-word;}
 @media all and (max-width:800px){
 	:root{
 		--area-padding: 3.6rem;
+		--header-height: 60px;
     }
 }
-
-/* ========================================================
- * LAYOUT
-======================================================== */
-/* ****************** 공통클래스 ********************** */
-.area{ max-width:var(--area-width); margin:0px auto;}
-.area-box{ max-width:var(--area-box-width); margin:0px auto; }
-.full-height{height:var(--full-height);}
-
-/* ****************** Header ********************** */
-#header {position: absolute; top:0; left:0; width:100%; height:var(--header-height); z-index:99;}
-#header .header-inner { display: flex; justify-content: space-between; align-items: center; height:100%; } 
-#header .header-inner a { color: var(--txt-color); font-weight: 600; letter-spacing: -0.075em;}
-#header .logo { font-size: 3.6rem;}
-/* menu */
-#nav .menu-list { display: flex; }
-#nav .menu-list li { margin-left:2rem; font-size: 2.4rem; }
-
-
-@media all and (max-width:1680px){
-	.area {padding:0 var(--area-padding);}
-}
-
-@media all and (max-width:1280px){ 
-	.area{max-width:none;}
-}
-
 
 
 /* ========================================================
@@ -92,14 +65,42 @@ table, th, td{word-break:break-word;}
 @media all and (max-width:640px){
 	html{font-size:1.7188vw}  /* 10 -> 11*/
 }
-@media all and ( max-width: 480px ){
-	html{font-size:2.2vw}  /* 10 */
-}
-@media all and ( max-width: 412px ){
-	html{font-size:2.4272vw}  /* 10 */
-}
-@media all and (max-width:390px){
-	html{font-size:2.1795vw}  /* 10 -> 8.5 */
-}
 
 
+
+/* ========================================================
+ * LAYOUT
+======================================================== */
+/* ****************** Common ********************** */
+.area{ max-width:var(--area-width); margin:0px auto;}
+.area-box{ max-width:var(--area-box-width); margin:0px auto; }
+.full-height{height:var(--full-height);}
+
+@media all and (max-width:1680px){
+	.area {padding:0 var(--area-padding);}
+}
+
+@media all and (max-width:1280px){ 
+	.area{max-width:none;}
+}
+
+/* ****************** Header ********************** */
+#header {position: absolute; top:0; left:0; width:100%; height:var(--header-height); z-index:999999;}
+#header .header-inner { display: flex; justify-content: space-between; align-items: center; height:100%; } 
+#header .header-inner a { color: var(--txt-color); font-weight: 600; letter-spacing: -0.075em;}
+#header .logo { font-size: 3.6rem;}
+#nav .menu-list {display: flex;}
+#nav .menu-list li {margin-left:2rem;}
+#nav .menu-list li button {display:inline-block; position:relative; font-size:2rem; letter-spacing:-0.075em; font-weight:500;} 
+#nav .menu-list li button:before {content:""; position:absolute; bottom:-5px; left:0; width:0%; height:2px; background: var(--txt-color); transition:all 0.3s;}
+#nav .menu-list li button:hover:before {width:100%;}
+
+@media all and (max-width:800px){
+	#header:before {content:""; width:0%; height:1px; background: var(--txt-color); position:absolute; top:var(--header-height); left:0; opacity:0.3; transition:width 0.3s;} 
+	#header.top-fixed {position:fixed; background:rgba(255,255,255,0.5);}
+	#header.top-fixed:before {width:100%;}
+}
+
+/* ****************** Footer ********************** */
+#footer {position:absolute; bottom:0; width:100%; z-index:9; padding:2rem 0;}
+#footer .copyright {font-size:1.5rem; text-align: center;}
