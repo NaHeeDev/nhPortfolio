@@ -373,10 +373,6 @@ function goToScroll(name) {
         window.addEventListener('resize',()=>{
             if (isMobile() == false){
                 window.location.reload();
-            }else{
-                if(window.innerWidth > 1024){
-                    window.location.reload();
-                }
             }
         });
 
