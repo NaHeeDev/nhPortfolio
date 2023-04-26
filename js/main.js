@@ -3,13 +3,57 @@
  * description : 메인에만 사용되는 JS
  * date : 2023-04-26
 ******************************************************** */
+/* ************************
+  * 모바일 체크 함수
+  * return : 모바일 true / PC false
+************************ */
+ function isMobile(){
+	var UserAgent = navigator.userAgent;
+	if (UserAgent.match(/iPhone|iPad|iPad|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i) != null || UserAgent.match(/LG|SAMSUNG|Samsung/) != null)
+	{
+		return true;
+	}else{
+		// Ipad Safari Browser
+		if ( detectIpad() ) {
+			return true;
+		}else {
+			return false;
+		} 
+	}
+}
+function detectIpad() {
+	var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+	// Lying iOS13 iPad
+	if (userAgent.match(/Macintosh/i) !== null && window.innerWidth < 1025 ) {
+		// need to distinguish between Macbook and iPad
+		var canvas = document.createElement("canvas");
+		if (canvas !== null) {
+			var context = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+			if (context) {
+				var info = context.getExtension("WEBGL_debug_renderer_info");
+				if (info) {
+					var renderer = context.getParameter(info.UNMASKED_RENDERER_WEBGL);
+					if (renderer.indexOf("Apple") !== -1)
+					return true;
+				}
+			}
+		}
+	}
+	return false;
+}
 
-// menu 이동함수
+
+/* ************************
+  * 메뉴이동 함수
+************************ */
 function goToScroll(name) {
     var location = document.querySelector("#" + name).offsetTop;
     window.scrollTo({top: location, behavior: 'smooth'});
 }
 
+/* ************************
+  * 스크롤에 따른 기능 구현 함수
+************************ */
 (() => {
     let yOffset = 0;
     let prevScrollHeight = 0;
@@ -269,7 +313,7 @@ function goToScroll(name) {
                 if (sectionInfo[i].type == "sticky") {
                     sectionInfo[i].scrollHeight = sectionInfo[i].heightNum * window.innerHeight;
                 }else if(sectionInfo[i].type == "normal"){
-                    sectionInfo[i].scrollHeight = sectionInfo[i].objs.container.offsetHeight ;//+ window.innerHeight * 0.5;
+                    sectionInfo[i].scrollHeight = sectionInfo[i].objs.container.offsetHeight ;
                 }
                 sectionInfo[i].objs.container.style.height = `${sectionInfo[i].scrollHeight}px`;
             }
@@ -286,7 +330,7 @@ function goToScroll(name) {
             }
             document.body.setAttribute('id',`curSection${curSection+1}`);
         }else {
-            document.querySelector(".scroll-section").style.height = `auto`;
+            document.querySelector(".scroll-section").style.height = 'auto';
         }
     }
 
@@ -327,8 +371,12 @@ function goToScroll(name) {
         })
 
         window.addEventListener('resize',()=>{
-            if (window.innerWidth > 1024 ) {
+            if (isMobile() == false){
                 window.location.reload();
+            }else{
+                if(window.innerWidth > 1024){
+                    window.location.reload();
+                }
             }
         });
 
