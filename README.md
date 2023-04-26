@@ -1,4 +1,3 @@
-# nhPortfolio
 <div align=center>
 	<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=Nahee%20Github!&fontSize=90" />	
 </div>
@@ -21,4 +20,7 @@
 	<img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white" />
 </div>
 <br>
-<a href="https://naheedev.github.io/nhPortfolio" target="_blank">View Nahee's Portfolio!👏</a>
+<div align=center>
+	<a href="https://naheedev.github.io/nhPortfolio" target="_blank">View Nahee's Portfolio!👏</a>
+</div>
+
