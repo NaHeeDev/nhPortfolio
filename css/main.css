@@ -123,10 +123,9 @@
 .main-contact-con .con-box .tit-box {margin-bottom:5rem; width:100%;}
 .main-contact-con .con-box .tit {font-size: var(--sub-tit-size); letter-spacing: -0.05em; font-weight: 700;}
 .main-contact-con .con-box .txt {font-size: 2rem; letter-spacing: -0.05em; font-weight: 500; margin-top:2rem;}
-.main-contact-con .con-box .btn-box {display: flex;	opaicty:0;}
+.main-contact-con .con-box .btn-box {display: flex; flex-wrap: wrap; justify-content: center;}
 .main-contact-con .con-box .btn-box a {display:flex; align-items:center; justify-content: center; width:20rem; height:5rem; font-size:1.6rem; border: 1px solid var(--txt-color); padding:0 2rem; color:var(--txt-color); margin-left:2rem; transition:all 0.3s;}
 .main-contact-con .con-box .btn-box a i {margin-right:5px;}
 .main-contact-con .con-box .btn-box a:first-child {margin-left:0;}
 .main-contact-con .con-box .btn-box a:hover {color:var(--main-color); border-color:var(--main-color); background-color:#fff;} 
-
 
