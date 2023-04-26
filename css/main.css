@@ -29,7 +29,7 @@
 .txt-ani:nth-child(2).active .txt-ani-inner {animation-delay: 0.5s;}
 .txt-ani:nth-child(3).active .txt-ani-inner {animation-delay: 0.8s;}
 
-.sticky-elem { display: none; position: fixed; left: 0; top:0; width: 100%;}
+.sticky-elem { display: none; position: fixed; left: 0; top:0; width: 100%; z-index:999;}
 .main-message {opacity:0;}
 .scroll-section {position: relative; z-index: 9;/* border:1px solid red;box-sizing: border-box;*/}
 .main-section-tit {display:block; text-align:center; font-size:var(--sub-tit-size); text-align: center;}
@@ -48,9 +48,6 @@
 .main-about-intro .main-tit span {display:block; font-size: 3rem; font-weight:500; margin-top:2rem;}
 #curSection1 .sticky-elem {display: block; will-change: transform, opacity;}
 
-@media all and (max-width:480px) {
-	
-}
 
 /* ========================================================
  * Section02 :: About
@@ -102,8 +99,6 @@
 .main-portfolio-list li a:hover .img-wrap:before {opacity:0.7;}
 .main-portfolio-list li a:hover .more {opacity: 1; transform: translate(-50%,-50%);}
 .main-portfolio-list li a:hover .cover {opacity:1;}
-
-
 
 @media all and (max-width:1024px){
 	.main-portfolio-con {padding:10rem 0;}

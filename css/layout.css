@@ -30,7 +30,7 @@
     background: var(--main-color);    
     color: #fff;
 }
-html{font-size:10px;}
+html{font-size:10px; }
 body, table, th, td, button, select, input, textarea {
 	font-family:var(--font-family1);
 	color: var(--txt-color);
@@ -92,9 +92,10 @@ table, th, td{word-break:break-word;}
 #nav .menu-list {display: flex;}
 #nav .menu-list li {margin-left:2rem;}
 #nav .menu-list li button {display:inline-block; position:relative; font-size:2rem; letter-spacing:-0.075em; font-weight:500;} 
-#nav .menu-list li button:before {content:""; position:absolute; bottom:-5px; left:0; width:0%; height:2px; background: var(--txt-color); transition:all 0.3s;}
-#nav .menu-list li button:hover:before {width:100%;}
-
+@media all and (min-width:801px){
+	#nav .menu-list li button:before {content:""; position:absolute; bottom:-5px; left:0; width:0%; height:2px; background: var(--txt-color); transition:all 0.3s;}
+	#nav .menu-list li button:hover:before {width:100%;}
+}
 @media all and (max-width:800px){
 	#header:before {content:""; width:0%; height:1px; background: var(--txt-color); position:absolute; top:var(--header-height); left:0; opacity:0.3; transition:width 0.3s;} 
 	#header.top-fixed {position:fixed; background:rgba(255,255,255,0.5);}
