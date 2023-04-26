@@ -24,7 +24,7 @@
 function detectIpad() {
 	var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 	// Lying iOS13 iPad
-	if (userAgent.match(/Macintosh/i) !== null && window.innerWidth < 1025 ) {
+	if (userAgent.match(/Macintosh/i) !== null /*&& window.innerWidth < 1025*/ ) {
 		// need to distinguish between Macbook and iPad
 		var canvas = document.createElement("canvas");
 		if (canvas !== null) {
@@ -336,7 +336,7 @@ function goToScroll(name) {
 
     
     window.addEventListener('load',() =>{
-        alert(isMobile() );
+        
         setLayout();
 
         // 중간에서 새로고침 했을 경우 자동 스크롤로 제대로 그려주기
@@ -371,9 +371,9 @@ function goToScroll(name) {
         })
 
         window.addEventListener('resize',()=>{
+            alert('resize', isMobile());
             if (isMobile() == false){
                 window.location.reload();
-                alert('resize')
             }
         });
 
