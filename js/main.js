@@ -257,30 +257,37 @@ function goToScroll(name) {
         }
         
         if(enterNewScene) return;
-        playAnimation();
+        // pc에서만 애니메이션 작동
+        if (window.innerWidth > 800 ) {
+            playAnimation();
+        }
     }
 
     function setLayout() {
-        for (let i = 0; i < sectionInfo.length; i++){
-            if (sectionInfo[i].type == "sticky") {
-                sectionInfo[i].scrollHeight = sectionInfo[i].heightNum * window.innerHeight;
-            }else if(sectionInfo[i].type == "normal"){
-                sectionInfo[i].scrollHeight = sectionInfo[i].objs.container.offsetHeight ;//+ window.innerHeight * 0.5;
+        if (window.innerWidth > 800 ) {
+            for (let i = 0; i < sectionInfo.length; i++){
+                if (sectionInfo[i].type == "sticky") {
+                    sectionInfo[i].scrollHeight = sectionInfo[i].heightNum * window.innerHeight;
+                }else if(sectionInfo[i].type == "normal"){
+                    sectionInfo[i].scrollHeight = sectionInfo[i].objs.container.offsetHeight ;//+ window.innerHeight * 0.5;
+                }
+                sectionInfo[i].objs.container.style.height = `${sectionInfo[i].scrollHeight}px`;
             }
-            sectionInfo[i].objs.container.style.height = `${sectionInfo[i].scrollHeight}px`;
-        }
 
-        yOffset = window.pageYOffset;
+            yOffset = window.pageYOffset;
 
-        let totalScrollHeight = 0;
-        for(let i = 0; i < sectionInfo.length; i++){
-            totalScrollHeight += sectionInfo[i].scrollHeight;
-            if(totalScrollHeight >= yOffset){
-                curSection = i;
-                break;
+            let totalScrollHeight = 0;
+            for(let i = 0; i < sectionInfo.length; i++){
+                totalScrollHeight += sectionInfo[i].scrollHeight;
+                if(totalScrollHeight >= yOffset){
+                    curSection = i;
+                    break;
+                }
             }
+            document.body.setAttribute('id',`curSection${curSection+1}`);
+        }else {
+            document.querySelector(".scroll-section").style.height = `auto`;
         }
-        document.body.setAttribute('id',`curSection${curSection+1}`);
     }
 
     
@@ -303,7 +310,7 @@ function goToScroll(name) {
 
         window.addEventListener('scroll', () =>{
             yOffset = window.pageYOffset;
-            scrollLoop();
+            
 
             // 모바일에서 header fixed
             if (window.innerWidth <= 800 ) {
@@ -312,12 +319,13 @@ function goToScroll(name) {
                 }else{
                     document.querySelector("#header").classList.remove("top-fixed");
                 }
+            }else{
+                scrollLoop();
             }
         })
 
         window.addEventListener('resize',()=>{
-			window.location.reload();
-			
+            window.location.reload();
         });
 
         window.addEventListener('orientationchange', () => {
