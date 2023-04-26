@@ -371,7 +371,6 @@ function goToScroll(name) {
         })
 
         window.addEventListener('resize',()=>{
-            alert('resize', isMobile());
             if (isMobile() == false){
                 window.location.reload();
             }
